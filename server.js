@@ -17,7 +17,7 @@ io.on('connection', (socket) => {
   console.log(`User connected: ${socket.id}`);
   
   socket.on('send-cursor', (data) => {
-    console.log({ id: socket.id, ...data });
+    console.log({ id: socket.id, username:data.username,code:data.code });
     socket.broadcast.emit('receive-cursor', { id: socket.id, ...data });
   });
 
